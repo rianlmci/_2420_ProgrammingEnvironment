@@ -144,6 +144,6 @@ public class A01Part1 {
 
 	//= = = TEST CLIENT = = =//
 	public static void main(String[] args){
-		System.out.println("Hello Friend");
+
 	}
 } 
