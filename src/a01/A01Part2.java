@@ -52,32 +52,21 @@ public class A01Part2 {
 		}
 
 		//Checking Valid Sequence:
-		int sumCount = 0;
+		int sumCount;
 		int sequenceCountLowest = (array.length + 1);
 		int currentSequenceCount = 0;
 		for(int i = 0; i < array.length; i++){
-			//System.out.println("Counting from " + array[i]);
 			sumCount = 0;
 			currentSequenceCount = 0;
 			for(int j = i; j < array.length; j++){
 				if (sumCount != sum) {
-					/*System.out.println(
-							"adding value of j: " + array[j] +
-							" and the current sum: " + sumCount +
-							" gives us " + (array[j] + sumCount));
-					*/
 					sumCount = array[j] + sumCount;
 					currentSequenceCount += 1;
 				}
 
-				else if(sumCount == sum){
-					/*System.out.println("A sum match has been found! " +
-							"It was from " + array[i] + " to " + array[j] +
-							" and the sequence length was " + currentSequenceCount +".");
-					 */
+				else{
 					j = array.length;
 					if (currentSequenceCount < sequenceCountLowest)
-					//System.out.println("It was a new record low!");
 					sequenceCountLowest = currentSequenceCount;
 				}
 			}
