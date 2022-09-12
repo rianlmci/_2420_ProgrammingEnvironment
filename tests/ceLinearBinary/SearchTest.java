@@ -45,7 +45,8 @@ class SearchTest {
 
     @Test
     void linear_isNull() {
-        assertThrows(NullPointerException.class, () -> {Search.linear(null, "1");});
+        assertThrows(NullPointerException.class,
+                () -> {Search.linear(null, "1");});
     }
 
     @Test
@@ -91,7 +92,7 @@ class SearchTest {
     @Test
     void binary_scrambledNumbersAndMixedCaseLetters() {
         assertEquals(
-            2,
+            3,
             Search.binary(
                 new String [] {"4","C", "2", "a"},
                 "a"
