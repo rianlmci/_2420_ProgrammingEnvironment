@@ -3,7 +3,7 @@ package ceIntroToLinkedStructures;
 /**
  * WordList is a singly-linked list of Strings.
  * It is designed as a practice opportunity to
- * learn how to manipulate linked sturctures.
+ * learn how to manipulate linked structures.
  * 
  * @author ..........
  */
@@ -50,30 +50,25 @@ public class WordList {
 	 * @param newItem
 	 */
 	public void prepend(String newItem) {
-		// create a new node based on the word provided by the user
 		Node newNode = new Node();
 		newNode.item = newItem;
-
 		if (isEmpty()) {
 			head = newNode;
 			tail = newNode;
 		}
-		else {
-			newNode.next = head;
-			this.head = newNode;
+		else{
+			//creates a holder for the old head for clarity.
+			Node oldHead = head;
+			//creates the link for the linked list,
+			//pointing it to the old head
+			// Imagine it like this drawing:
+			// newNode -> oldHead (newNode.next = oldHead;)
+			newNode.next = oldHead;
+			//finally establishes the new node as the head.
+			head = newNode;
+			// The links look like this now newNode -> oldHead -> ...
 		}
 		n++;
-
-		//TODO go over why this doesnt work but the pair programming did
-		/**
-		// means "adds to the beginning"
-		Node newNode = new Node();
-		newNode.item = newItem;
-		Node oldNode = head;
-		head = head.next;
-		newNode = head;
-		n++;
-		 */
 	}
 	
 	/** 
@@ -84,8 +79,17 @@ public class WordList {
 	 * @param item
 	 * @return index of the first occurrence of the item; -1 if the word was not found.
 	 */
-	public int indexOf(String item) {		
-		return 0; // TODO 3
+	public int indexOf(String item) {
+		Node current = head;
+		int indexLocation = 0;
+		while(current != null) {
+			if (current.item.compareTo(item) == 0) {
+				return indexLocation;
+			}
+			indexLocation ++;
+			current = current.next;
+		}
+		return -1;
 	}
 	
 	/** 
@@ -94,8 +98,17 @@ public class WordList {
 	 * @param item
 	 * @return true if the item is contained in the list; false otherwise.
 	 */
-	public boolean contains(String item) {	
-		return false; // TODO 4
+	public boolean contains(String item) {
+		Node current = head;
+		int indexLocation = 0;
+		while(current != null) {
+			if (current.item.compareTo(item) == 0) {
+				return true;
+			}
+			indexLocation ++;
+			current = current.next;
+		}
+		return false;
 	}
 	
 	/**
@@ -145,9 +158,11 @@ public class WordList {
 		list.append("dog");
 		//test
 		list.prepend("chicken");
-		System.out.println("list: " + list);
+		System.out.println("updated list: " + list);
 
 		System.out.println("Q: is the list empty? A: "+ list.isEmpty() + ".");
+		System.out.println("Index location of dog: "+ list.indexOf("dog") + ".");
+		System.out.println("'dog' is in this list: "+ list.contains("dog") + ".");
 	}
 
 }
