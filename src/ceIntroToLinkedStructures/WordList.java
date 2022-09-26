@@ -144,7 +144,7 @@ public class WordList {
 	/* * * * * * * * Test Client * * * * * * */
 	public static void main(String[] args) {
 		WordList list = new WordList();
-		System.out.println("size: " + list.size());
+		System.out.println("Word list size: " + list.size());
 		
 		// CHALLENGE 1
 		// Dynamically determine whether the list is empty. If so, print 
@@ -163,6 +163,7 @@ public class WordList {
 		System.out.println("Q: is the list empty? A: "+ list.isEmpty() + ".");
 		System.out.println("Index location of dog: "+ list.indexOf("dog") + ".");
 		System.out.println("'dog' is in this list: "+ list.contains("dog") + ".");
+		System.out.println("Index location of owl: "+ list.indexOf("owl") + ".");
 	}
 
 }
