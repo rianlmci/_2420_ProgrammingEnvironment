@@ -25,9 +25,9 @@ public class Triangles {
         double y1 = y + size/2;
 
         // draw the 3 line segments of the H
-        StdDraw.line(x0, y0, x0, y1);    // left  vertical segment of the H
-        StdDraw.line(x1, y, x1, y0);    // right vertical segment of the H
-        StdDraw.line(x0,  y, x1,  y);    // connect the two vertical segments of the H
+        StdDraw.line(x0, y0, x0, y1);    // left  vertical segment of the H DONT CHANGE
+        StdDraw.line(x1, y0, x0, y1);    //right vertical segment of the H DONT CHANGE
+        StdDraw.line(x0, y0, x1,  y0);    // connect the two vertical segments of the H DONT CHANGE
     }
 
     // plot an order n H-tree, centered on (x, y) of the given side length
