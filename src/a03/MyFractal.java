@@ -18,7 +18,7 @@ public class MyFractal {
         StdDraw.filledCircle(x,y,size);
         //face of pumpkin
         //TODO: Margret, comment line below out because image file will be missing! Basic image will still draw w/o it!
-        StdDraw.picture(x,y,"/images/pumpkinFace.png",(2*size),(2*size));
+        //StdDraw.picture(x,y,"/images/pumpkinFace.png",(2*size),(2*size));
 
     }
 
@@ -46,6 +46,6 @@ public class MyFractal {
      */
     public static void main(String[] args) {
         StdDraw.clear(BLACK);
-        drawMyFractal(0.17,0.77,0.15,5);
+        drawMyFractal(0.17,0.77,0.15,2);
     }
 }
