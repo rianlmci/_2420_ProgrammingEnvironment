@@ -50,7 +50,7 @@ public class Triangles {
 
     // reads an integer command-line argument n and plots an order n H-tree
     public static void main(String[] args) {
-        int n = 1 /*Integer.parseInt(args[0])*/;
+        int n = 3 /*Integer.parseInt(args[0])*/;
 
         double x = 0.5, y = 0.5;   // center of H-tree
         double size = 0.5;         // side length of H-tree
