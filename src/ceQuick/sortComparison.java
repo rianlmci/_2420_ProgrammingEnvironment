@@ -5,9 +5,17 @@ import edu.princeton.cs.algs4.Selection;
 
 import java.util.Random;
 
+/**
+ * Shows timing comparisons of how long it takes different sorting
+ * algorithms to sort random number arrays of different sizes.
+ * @author Rianna McIntyre
+ */
 public class sortComparison {
     public static void main(String args[]){
-        System.out.print(recursiveArrayTestPrinter(new StringBuilder(), 7, 0, 5).toString());
+        System.out.println("||= = = = = = = = = = TIMING TESTS = = = = = = = = = ||");
+        System.out.println("|| Elements:   QuickSort Time:   SelectionSort Time: ||");
+        System.out.print(  "||---------------------------------------------------||");
+        System.out.print(recursiveArrayTestPrinter(new StringBuilder(), 150, 0, 10).toString());
         //for github.
     }
 
@@ -21,7 +29,6 @@ public class sortComparison {
         Random myRandom = new Random();
         Integer[] randArray = new Integer[size];
         for (int i = 0; i < size; i++) {
-            //randArray[i] = (int)((Math.random()*10 + 1000000)); //our solution
             randArray[i] = myRandom.nextInt(9_000_000) + 1_000_000; //margret's solution
         }
         return randArray;
@@ -44,22 +51,25 @@ public class sortComparison {
             return myBuilder;
         }
 
-        myBuilder.append("\n \n = = = Sorting Number #" + (doubleIncrement+1) + " = = =");
-        myBuilder.append("\n\nSorting of " + randArray.length + " digit number...");
-
-        //= = = = QUICK SORT INFO = = = =
+        //= = = = QUICK SORT CALCULATION = = = =
         Integer qSortArray [] = randArray;
-        long startTime = System.nanoTime(); //start time for QuickSort
+        long qStartTime = System.nanoTime(); //start time for QuickSort
         Quick.sort(qSortArray);
-        myBuilder.append(String.format("\n \nQuick sorting time: %.4f seconds.",
-                ((System.nanoTime()-startTime)/BILLION)));
+        long qEndTime = System.nanoTime(); //end time for QuickSort
 
-        //= = = = SELECT SORT INFO = = = =
+
+        //= = = = SELECT SORT CALCULATION = = = =
         Integer sSortArray [] = randArray;
-        startTime = System.nanoTime(); //start time for QuickSort
+        long sStartTime = System.nanoTime(); //start time for SelectionSort
         Selection.sort(sSortArray);
-        myBuilder.append(String.format("\nSelect sorting time: %.4f seconds.",
-                ((System.nanoTime()-startTime)/BILLION)));
+        long sEndTime = System.nanoTime(); //end time for SelectionSort
+
+        //= = = = INFO PRINTING = = = =
+        myBuilder.append(String.format("\n|| %9d |  %8.4f seconds |  %8.4f seconds ||",
+                doubledArraySize,
+                (qEndTime- qStartTime)/BILLION,
+                (sEndTime- sStartTime)/BILLION)
+        );
 
         //Recursion calculation below ...
         doubleIncrement++;
