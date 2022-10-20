@@ -45,6 +45,7 @@ public class sortComparison {
         }
 
         myBuilder.append("\n \n = = = Sorting Number #" + (doubleIncrement+1) + " = = =");
+        myBuilder.append("\n\nSorting of " + randArray.length + " digit number...");
 
         //= = = = QUICK SORT INFO = = = =
         Integer qSortArray [] = randArray;
