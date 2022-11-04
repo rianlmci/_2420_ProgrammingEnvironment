@@ -65,7 +65,7 @@ public class PetApp {
         StdOut.printf("The second smallest key is %d, %s!\n", st.select(1),st.get(st.select(1)).getName());
 
         //Change the pet that is associated with the pet ID 30.
-        //It should not longer be called Waldi but Strolch instead.
+        //It should no longer be called Waldi but Strolch instead.
         st.put(30, new Pet("Strolch", 2, "dog"));
 
         StdOut.println("\n= = = = New Pet-ID 30 In The Array = = = =");
