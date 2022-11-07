@@ -1,7 +1,6 @@
 package m03;
 
 import edu.princeton.cs.algs4.BinarySearchST;
-import edu.princeton.cs.algs4.ST;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
