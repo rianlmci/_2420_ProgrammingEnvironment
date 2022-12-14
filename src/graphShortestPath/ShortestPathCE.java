@@ -15,7 +15,6 @@ public class ShortestPathCE {
         String end = "End"; // hard coded input
 
         DijkstraSP sp = new DijkstraSP(graph,sg.indexOf(start));
-        double length = 0;
         System.out.println("Shortest path from " + start + " to " + end + ":");
         System.out.println("--------------------------------");
 
@@ -24,9 +23,8 @@ public class ShortestPathCE {
             sp.pathTo(sg.indexOf(end))) {
                 System.out.printf("%s to %s (%.1f)\n",
                         sg.nameOf(edge.from()), sg.nameOf(edge.to()), edge.weight());
-                length += edge.weight();
             }
         }
-        System.out.println("Total length from Start to End: " + length);
+        System.out.println("Total length from Start to End: " + sp.distTo(sg.indexOf(end)));
     }
 }

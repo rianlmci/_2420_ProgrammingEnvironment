@@ -11,7 +11,7 @@ public class CityConnectionsCE {
                 new EdgeWeightedSymbolGraph(filePath,",");
         EdgeWeightedGraph graph = symbolGraph.graph();
         PrimMST primMst = new PrimMST(graph);
-        int totalWeight = 0;
+
         System.out.println("Cities to connect with a bike trail:");
         System.out.println("------------------------------------");
         for (Edge oneEdge: primMst.edges()) {
@@ -19,8 +19,7 @@ public class CityConnectionsCE {
                     symbolGraph.nameOf(oneEdge.either()),
                     symbolGraph.nameOf(oneEdge.other(oneEdge.either())),
                     (int)oneEdge.weight());
-            totalWeight += oneEdge.weight();
         }
-    System.out.println("Total length of the bike trail: " + totalWeight + "!");
+    System.out.println("Total length of the bike trail: " + primMst.weight() + "!");
     }
 }
